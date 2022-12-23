@@ -120,8 +120,8 @@ GRANT ALL PRIVILEGES ON _._ TO 'username'@'host';
 - Execute the following commands in order in the proxy instance:
 ```
 git clone https://github.com/Kevin-Lam1013/LOG8415-Project.git
-LOG8415-Project/part2
-python3 proxy-pattern.py <master_ip> <slave1_ip> <slave2_ip> <slave3_ip> <hit_type> <sql_query>
+cd LOG8415-Project/part2
+sudo python3 proxy-pattern.py <master_ip> <slave1_ip> <slave2_ip> <slave3_ip> <hit_type> <sql_query>
 ```
 
 **In this case the ip are the public IPv4 address**
