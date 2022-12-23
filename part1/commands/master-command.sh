@@ -10,6 +10,11 @@ SLAVE1_IP="$2"
 SLAVE2_IP="$3"
 SLAVE3_IP="$4"
 
+echo "The master ip: $MASTER_IP"
+echo "The slave1 ip: $SLAVE1_IP"
+echo "The slave2 ip: $SLAVE2_IP"
+echo "The slave3 ip: $SLAVE3_IP"
+
 # Install Dependancies
 sudo apt update && sudo apt install libaio1 libmecab2 libncurses5 dos2unix sysbench expect -y
 cd ~
