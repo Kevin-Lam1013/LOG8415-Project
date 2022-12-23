@@ -9,7 +9,7 @@ You can create all the instances using the `main.tf`
 - `terraform plan`
 - `terraform apply` 
 
-## Running MySQL Cluster on Amazon EC2
+## MySQL stand-alone server, MySQL Cluster, and Sakila
 
 ### 1. Master steps:
 
@@ -88,3 +88,14 @@ SHOW FULL TABLES;
 ```
 
 A table should appear in your terminal
+
+### 4. Benchmark steps:
+
+1. In the Master
+- Execute: `sudo apt-get install sysbench`
+- Execute all the benchmark test in `benchmark-test/master-benchmark.md`
+
+2. In the Stand-alone
+- Install sakila using the steps above
+- Execute: `sudo apt-get install sysbench`
+- Execute all the benchmark test in `benchmark-test/stand-alone-benchmark.md`
