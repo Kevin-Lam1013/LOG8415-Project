@@ -56,7 +56,7 @@ ndbcluster  # run NDB storage engine
 bind-address=0.0.0.0
 
 [mysql_cluster]
-ndb-connectstring=ip-172-31-35-156.ec2.internal # location of management server
+ndb-connectstring=<master-ip> # location of management server
 ```
 
 Verify that the modification are done properly using: `sudo nano /etc/mysql/my.cnf`
@@ -73,16 +73,17 @@ sudo systemctl enable mysql
 Execute the following commands in order
 
 ```
-wget https://downloads.mysql.com/docs/sakila-db.tar.gz
+sudo wget https://downloads.mysql.com/docs/sakila-db.tar.gz
 sudo tar -xvzf sakila-db.tar.gz
+sudo cp -r sakila-db /tmp/
 mysql -u root -p
+```
+
+Execute the following commands in order in mysql
+
+```
 SOURCE /tmp/sakila-db/sakila-schema.sql;
 SOURCE /tmp/sakila-db/sakila-data.sql;
-```
-
-Execute the following commands in order in sakila
-
-```
 USE sakila;
 SHOW FULL TABLES;
 ```
