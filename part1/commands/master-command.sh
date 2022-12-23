@@ -1,9 +1,9 @@
 #!/bin/bash
 
-MASTER_IP="ip-172-31-28-136.ec2.internal"
-SLAVE1_IP="ip-172-31-25-153.ec2.internal"
-SLAVE2_IP="ip-172-31-19-130.ec2.internal"
-SLAVE3_IP="ip-172-31-19-13.ec2.internal"
+MASTER_IP="ip-172-31-25-118.ec2.internal"
+SLAVE1_IP="ip-172-31-23-215.ec2.internal"
+SLAVE2_IP="ip-172-31-29-164.ec2.internal"
+SLAVE3_IP="ip-172-31-23-249.ec2.internal"
 
 # Install Dependancies
 sudo apt update && sudo apt install libaio1 libmecab2 libncurses5 dos2unix sysbench expect -y
