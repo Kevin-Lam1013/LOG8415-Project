@@ -7,8 +7,8 @@ from sshtunnel import SSHTunnelForwarder
 
 def execute(slave_ip, master_ip, sql_query):
     with SSHTunnelForwarder(slave_ip, ssh_username='ubuntu', ssh_pkey='labsuser.pem', remote_bind_address=(master_ip, 3306)) as tunnel:
-        conn = pymysql.connect(host=master_ip, user='kevin',
-                               password='1234', db='sakila', port=3306, autocommit=True)
+        conn = pymysql.connect(host=master_ip, user='username',
+                               password='password', db='sakila', port=3306, autocommit=True)
         cursor = conn.cursor()
         operation = sql_query
         cursor.execute(operation)
