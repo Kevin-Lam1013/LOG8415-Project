@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-MASTER_IP="ip-172-31-25-118.ec2.internal"
+MASTER_IP="$1"
 
 # Install Dependancies
 sudo apt update && sudo apt install libclass-methodmaker-perl
