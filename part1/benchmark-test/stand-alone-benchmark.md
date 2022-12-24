@@ -1,5 +1,7 @@
 # Benchmark test in the Stand-alone
 
+**Make sure to always do the prepare, run and cleanup command in that order to properly run the tests**
+
 ## oltp_read_write
 ```
 sudo sysbench /usr/share/sysbench/oltp_read_write.lua --mysql-user=root --mysql-password='root' --mysql-db=sakila --threads=6 --db-driver=mysql --tables=18 --table-size=10000 prepare

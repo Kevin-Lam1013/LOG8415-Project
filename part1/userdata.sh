@@ -2,9 +2,10 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
+# Hardcoded password for MySQL so it will be easy to remember
 MYSQL_PASSWORD='root'
 
-# Install MySQL
+# Installing MySQL
 echo debconf mysql-server/root_password password $MYSQL_PASSWORD | debconf-set-selections
 echo debconf mysql-server/root_password_again password $MYSQL_PASSWORD | debconf-set-selections
 
@@ -41,10 +42,10 @@ expect ~/secure_our_mysql.sh
 
 # Cleanup
 rm -v ~/secure_our_mysql.sh # Remove the generated Expect script
-#sudo apt-get -qq purge expect > /dev/null # Uninstall Expect, commented out in case you need Expect
 
 apt-get update && apt install python3.8 python3-pip dos2unix -y
 
+# Python librairies needed for the proxy pattern
 pip3 install sshtunnel
 pip3 install PyMySQL
 pip3 install pythonping

@@ -9,7 +9,7 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-
+# Don't forget to replace for the correct credentials
 provider "aws" {
   region     = "us-east-1"
   access_key = "ASIAVA4BL2KHLZF556OQ"
@@ -98,6 +98,7 @@ resource "aws_instance" "slave-3" {
   }
 }
 
+# Notice that proxy is the only one with t2.large instance type, since it's specified in the instructions
 resource "aws_instance" "proxy" {
   ami                    = "ami-0149b2da6ceec4bb0"
   instance_type          = "t2.large"

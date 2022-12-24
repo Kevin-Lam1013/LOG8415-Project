@@ -3,17 +3,17 @@
 
 MASTER_IP="$1"
 
-# Install Dependancies
+# Installing dependencies
 sudo apt update && sudo apt install libclass-methodmaker-perl
 cd ~
 
 
-# Install MySQL
+# MySQL installation command
 wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 sudo dpkg -i mysql-cluster-community-data-node_7.6.6-1ubuntu18.04_amd64.deb
 
 
-# Create config file
+# Create and set up config file
 cat <<EOF >my.cnf
 [mysql_cluster]
 # Options for NDB Cluster processes:
@@ -24,7 +24,7 @@ sudo cp my.cnf /etc/
 sudo mkdir -p /usr/local/mysql/data
 
 
-# Create service file
+# Create and set up service file
 cat <<EOF >ndbd.service
 [Unit]
 Description=MySQL NDB Data Node Daemon

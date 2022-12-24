@@ -1,27 +1,23 @@
 #!/bin/bash
 
+# Getting all the IPs from the command
 MASTER_IP="$1"
 SLAVE1_IP="$2"
 SLAVE2_IP="$3"
 SLAVE3_IP="$4"
 
-echo "The master ip: $MASTER_IP"
-echo "The slave1 ip: $SLAVE1_IP"
-echo "The slave2 ip: $SLAVE2_IP"
-echo "The slave3 ip: $SLAVE3_IP"
-
-# Install Dependancies
+# Installing all the dependancies
 sudo apt update && sudo apt install libaio1 libmecab2 libncurses5 dos2unix sysbench expect -y
 cd ~
 
 
-# Install MySQL
+# Installing MySQL
 sudo wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-7.6/mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd64.deb
 sudo dpkg -i mysql-cluster-community-management-server_7.6.6-1ubuntu18.04_amd64.deb
 sudo mkdir /var/lib/mysql-cluster
 
 
-# Create config file
+# Create and set up config file
 cat <<EOF >config.ini
 [ndbd default]
 # Options affecting ndbd processes on all data nodes:
@@ -57,7 +53,7 @@ sudo dos2unix config.ini
 sudo cp config.ini /var/lib/mysql-cluster/
 
 
-# Create service file
+# Create and set up service file
 cat <<EOF >ndb_mgmd.service
 [Unit]
 Description=MySQL NDB Cluster Management Server
